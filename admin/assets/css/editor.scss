@@ -1,0 +1,260 @@
+$color-1: #2a445d;
+$color-2: #4d6377;
+
+.row {
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+.column-1,
+.column-2 {
+	position: relative;
+	float: left;
+}
+.column-1 {
+	width: 20%;
+	margin-right: 3%
+}
+.column-2 {
+	width: 77%;
+}
+
+.box-primary_{
+	h3, div {
+		color: #fff;
+	}
+	h3 {
+		border-top: 1px solid rgba(255, 255, 255, .1);
+		margin: 0;
+		padding: 10px 20px;
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: normal;
+		cursor: pointer;
+		&:before {
+			content: "\f318";
+			display: inline-block;
+			margin-right: 10px;
+			-webkit-font-smoothing: antialiased;
+			font: normal 20px/1 'dashicons';
+			vertical-align: top;
+		}
+		&.ui-accordion-header-active {
+			&:before {
+				content: "\f322";
+			}
+		}
+		&:hover,
+		&:focus,
+		&:active {
+			outline: none;
+		}
+	}
+	.item {
+		display: none;
+	}
+	.item-1 {
+		display: block;
+	}
+	.template-list {
+		margin: 0;
+		padding: 0;
+		li {
+			margin: 0;
+			padding: 0;
+			border: none;
+			a {
+				display: block;
+				margin: 0;
+				padding: 5px 10px 5px 45px;
+				color: #fff;
+				font-size: 12px;
+				line-height: 17px;
+				text-decoration: none;
+				&:before {
+					content: "\f101";
+					display: inline-block;
+					margin-right: 6px;
+					-webkit-font-smoothing: antialiased;
+					font: normal 12px/17px 'dashicons';
+					vertical-align: top;
+				}
+				&:hover,
+				&:focus,
+				&:active {
+					outline: none;
+					box-shadow: none;
+					background: rgba(255, 255, 255, .07);
+				}
+				&.add-new {
+					&:before {
+						content: "\f502";
+					}
+				}
+			}
+		}
+	}
+}
+
+#editor {
+	.wp-editor-container {
+		clear: none;
+		width: auto;
+		border: 1px solid #dddcdc;
+		border-radius: 5px;
+	}
+}
+
+#wp-shortcode-template-wrap {
+	overflow: hidden;
+	margin-bottom: 25px;
+}
+
+.cherry-ui-core {
+	&.cherry-shortcodes-templater {
+		.action-dropdown_ {
+			position: absolute;
+			top: 18px;
+			right: 18px;
+			z-index: 999;
+			.dashicons {
+				padding-top: 10px;
+			}
+		}
+	}
+	.quicktags-toolbar {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		z-index: 99;
+		width: 85%;
+		padding: 22px 15px;
+		border: none;
+		background: none;
+		&:before {
+			position: absolute;
+			z-index: 1;
+			top: 1px;
+			bottom: 1px;
+			left: 1px;
+			right: -9999px;
+			display: block;
+			content: '';
+			background: $color-1;
+			border-radius: 0 0 4px 4px;
+		}
+		> input {
+			position: relative;
+			z-index: 2;
+		}
+	}
+	.wp-editor-container {
+		.quicktags-toolbar {
+			.button {
+				background: none;
+				color: #fff;
+				border: 1px solid rgba(255, 255, 255, 0.3);
+				border-radius: 5px;
+				box-shadow: none;
+				@media screen and ( min-width: 782px ) {
+					&.button-small {
+						font-size: 13px;
+						line-height: 17px;
+						height: 27px;
+						padding: 4px 10px 6px;
+					}
+				}
+				&:hover,
+				&:active,
+				&:focus {
+					background: $color-2;
+					border-color: $color-2;
+				}
+			}
+		}
+		.button-primary_ {
+			position: absolute;
+			bottom: 16px;
+			right: 18px;
+			z-index: 999;
+		}
+	}
+	.rename-form-btns-wrap {
+		text-align: center;
+		.button_ {
+			display: inline-block;
+			vertical-align: top;
+			margin: 10px 5px 0;
+		}
+	}
+}
+
+.wp-editor-area {
+	background: #fff;
+	border-radius: 5px;
+}
+
+.editor-control-wrap {
+	label {
+		display: block;
+	}
+}
+
+#rename-dialog {
+	display: none;
+}
+
+.appearance_page_cherry-shortcodes-templater {
+	.tb-close-icon {
+		&:before {
+			content: '';
+		}
+	}
+}
+
+#rename-form {
+	padding-top: 5px;
+	input[type="text"] {
+		width: 100%;
+		margin: 5px 0;
+	}
+}
+
+#new-file-name {
+	font-size: 16px;
+}
+
+#file-name-error {
+	display: none;
+	color: #ba1714;
+}
+
+.appearance_page_cherry-shortcodes-templater {
+	.updated_{
+		position: absolute;
+		z-index: 9999;
+		top: 0;
+		left: 50%;
+		margin-left: -100px;
+		padding: 15px 25px;
+		width: 200px;
+		text-align: center;
+		color: #fff;
+		background: rgba(0, 0, 0 ,0.6);
+	}
+}
+
+.macros-tooltip {
+	padding: 8px;
+	position: absolute;
+	z-index: 9999;
+	max-width: 200px;
+	-webkit-box-shadow: 0 0 5px #aaa;
+	box-shadow: 0 0 5px #aaa;
+	background: #fff;
+}
