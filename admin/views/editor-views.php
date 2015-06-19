@@ -54,7 +54,7 @@ $query_args['file']     = $file;
 $query_args['location'] = $upload_name;
 
 // Set the URL to which the form should be submitted.
-$this->form_url = 'themes.php?page=' . $this->plugin_slug;
+// $this->form_url = 'themes.php?page=' . $this->plugin_slug;
 
 // Set part of absolute path to the file.
 if ( $location == $upload_name ) {
@@ -256,23 +256,23 @@ switch( $action ) {
 		<div class="wrap cherry-shortcodes-templater cherry-ui-core">
 
 			<?php if ( isset( $_GET['save'] ) ) : ?>
-				<div id="message_" class="updated_"><?php _e( 'File edited successfully.', 'cherry-shortcodes-templater' ) ?></div>
+				<div id="message_" class="updated_ templater-updated_"><?php _e( 'File edited successfully.', 'cherry-shortcodes-templater' ) ?></div>
 			<?php endif;
 
 			if ( isset( $_GET['duplicate'] ) ) : ?>
-				<div id="message_" class="updated_"><?php _e( 'File added successfully.', 'cherry-shortcodes-templater' ) ?></div>
+				<div id="message_" class="updated_ templater-updated_"><?php _e( 'File added successfully.', 'cherry-shortcodes-templater' ) ?></div>
 			<?php endif;
 
 			if ( isset( $_GET['delete'] ) ) : ?>
-				<div id="message_" class="updated_"><?php _e( 'File deleted successfully.', 'cherry-shortcodes-templater' ) ?></div>
+				<div id="message_" class="updated_ templater-updated_"><?php _e( 'File deleted successfully.', 'cherry-shortcodes-templater' ) ?></div>
 			<?php endif;
 
 			if ( isset( $_GET['rename'] ) ) : ?>
-				<div id="message_" class="updated_"><?php _e( 'File renamed successfully.', 'cherry-shortcodes-templater' ) ?></div>
+				<div id="message_" class="updated_ templater-updated_"><?php _e( 'File renamed successfully.', 'cherry-shortcodes-templater' ) ?></div>
 			<?php endif;
 
 			if ( isset( $_GET['norename'] ) ) : ?>
-				<div id="message_" class="updated_"><?php _e( 'File with the same name already exists.', 'cherry-shortcodes-templater' ) ?></div>
+				<div id="message_" class="updated_ templater-updated_"><?php _e( 'File with the same name already exists.', 'cherry-shortcodes-templater' ) ?></div>
 			<?php endif; ?>
 
 			<div class="row">

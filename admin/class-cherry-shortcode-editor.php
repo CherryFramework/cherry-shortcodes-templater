@@ -80,7 +80,7 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ), 99 );
 
 			// Add the options page and menu item.
-			add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
+			add_action( 'admin_menu', array( $this, 'add_admin_menu' ), 11 );
 		}
 
 		/**
@@ -202,11 +202,20 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 		 * @since 1.0.0
 		 */
 		public function add_admin_menu() {
+
+			if ( class_exists( 'Cherry_Framework' ) ) {
+				$parent_slug    = 'cherry';
+				$this->form_url = 'admin.php?page=' . $this->plugin_slug;
+			} else {
+				$parent_slug    = 'themes.php';
+				$this->form_url = 'themes.php?page=' . $this->plugin_slug;
+			}
+
 			$this->page_screen_hook_suffix = add_submenu_page(
-				'themes.php',
+				$parent_slug,
 				__( 'Shortcodes Templater', 'cherry-shortcodes-templater '),
 				__( 'Shortcodes Templater', 'cherry-shortcodes-templater '),
-				'edit_themes',
+				'edit_theme_options',
 				$this->plugin_slug,
 				array( $this, '_display_admin_page' )
 			);
