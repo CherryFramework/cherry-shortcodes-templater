@@ -234,19 +234,17 @@ $color-2: #4d6377;
 	color: #ba1714;
 }
 
-.appearance_page_cherry-shortcodes-templater {
-	.updated_{
-		position: absolute;
-		z-index: 9999;
-		top: 0;
-		left: 50%;
-		margin-left: -100px;
-		padding: 15px 25px;
-		width: 200px;
-		text-align: center;
-		color: #fff;
-		background: rgba(0, 0, 0 ,0.6);
-	}
+.updated_.templater-updated_{
+	position: absolute;
+	z-index: 9999;
+	top: 0;
+	left: 50%;
+	margin-left: -100px;
+	padding: 15px 25px;
+	width: 200px;
+	text-align: center;
+	color: #fff;
+	background: rgba(0, 0, 0 ,0.6);
 }
 
 .macros-tooltip {
