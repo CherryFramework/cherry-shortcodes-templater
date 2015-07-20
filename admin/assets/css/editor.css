@@ -81,7 +81,6 @@
 }
 .box-primary_ .template-list li a:hover, .box-primary_ .template-list li a:focus, .box-primary_ .template-list li a:active {
   outline: none;
-  -webkit-box-shadow: none;
   box-shadow: none;
   background: rgba(255, 255, 255, 0.07);
 }
@@ -94,6 +93,10 @@
   width: auto;
   border: 1px solid #dddcdc;
   border-radius: 5px;
+}
+#editor .wp-editor-container textarea.wp-editor-area {
+  overflow-y: scroll;
+  margin-bottom: 106px;
 }
 
 #wp-shortcode-template-wrap {
@@ -141,7 +144,6 @@
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 5px;
-  -webkit-box-shadow: none;
   box-shadow: none;
 }
 @media screen and (min-width: 782px) {
