@@ -107,6 +107,10 @@ $color-2: #4d6377;
 		width: auto;
 		border: 1px solid #dddcdc;
 		border-radius: 5px;
+		textarea.wp-editor-area {
+			overflow-y: scroll;
+			margin-bottom: 106px;
+		}
 	}
 }
 
