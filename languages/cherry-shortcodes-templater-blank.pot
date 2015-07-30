@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: blank\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-27 10:22+0300\n"
+"POT-Creation-Date: 2015-07-30 17:08+0300\n"
 "PO-Revision-Date: 2015-04-06 06:14+0300\n"
 "Last-Translator: Vladimir Anokhin <ano.vladimir@gmail.com>\n"
 "Language-Team: Cherry Team <support@cherryframework.com>\n"
@@ -22,8 +22,8 @@ msgstr ""
 #: admin/class-cherry-shortcode-editor.php:92
 #, php-format
 msgid ""
-"Sorry, but a target directory (<strong>%1$s</strong>) are not created. "
-"Maybe <strong>%2$s</strong> directory is not writable."
+"Sorry, but target directory (<strong>%1$s</strong>) is not created. Maybe "
+"<strong>%2$s</strong> the directory is not writable."
 msgstr ""
 
 #: admin/class-cherry-shortcode-editor.php:159
@@ -53,9 +53,9 @@ msgstr ""
 
 #: admin/class-cherry-shortcode-editor.php:245
 msgid ""
-"You need to make this file writable before you can save your changes. See "
-"<a href=\"http://codex.wordpress.org/Changing_File_Permissions\">the "
-"Codex</a> for more information."
+"You need to make this file writable to save your changes. See <a href="
+"\"http://codex.wordpress.org/Changing_File_Permissions\">the Codex</a> "
+"for more information."
 msgstr ""
 
 #: admin/class-cherry-shortcode-editor.php:262
@@ -69,7 +69,7 @@ msgid "Duplicate"
 msgstr ""
 
 #: admin/views/editor-views.php:8
-msgid "Target directory has not exist."
+msgid "Target directory does not exist."
 msgstr ""
 
 #: admin/views/editor-views.php:12
@@ -112,7 +112,8 @@ msgstr ""
 
 #: admin/views/editor-views.php:360
 msgid ""
-"Oops, no such file exists! Double check the name and try again, merci."
+"Oops, such file does not exist! Double check the name and try again, "
+"merci."
 msgstr ""
 
 #: admin/views/editor-views.php:372
