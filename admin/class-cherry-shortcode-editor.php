@@ -89,7 +89,7 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 		 * @since 1.0.0
 		 */
 		public function admin_notice() {
-			echo '<div class="updated"><p>' . sprintf( __( 'Sorry, but a target directory (<strong>%1$s</strong>) are not created. Maybe <strong>%2$s</strong> directory is not writable.', 'cherry-shortcodes-templater' ), $this->target_dir_path, 'uploads' ) . '</p></div>';
+			echo '<div class="updated"><p>' . sprintf( __( 'Sorry, but target directory (<strong>%1$s</strong>) is not created. Maybe <strong>%2$s</strong> the directory is not writable.', 'cherry-shortcodes-templater' ), $this->target_dir_path, 'uploads' ) . '</p></div>';
 		}
 
 		/**
@@ -242,7 +242,7 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 
 			if ( !is_writable( CHERRY_TEMPLATER_UPLOAD_DIR ) ) {
 
-				$text = '<p><em>' . __( 'You need to make this file writable before you can save your changes. See <a href="http://codex.wordpress.org/Changing_File_Permissions">the Codex</a> for more information.' ) . '</em></p>';
+				$text = '<p><em>' . __( 'You need to make this file writable to save your changes. See <a href="http://codex.wordpress.org/Changing_File_Permissions">the Codex</a> for more information.' ) . '</em></p>';
 
 			} else {
 

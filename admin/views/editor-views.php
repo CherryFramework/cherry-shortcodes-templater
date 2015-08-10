@@ -5,7 +5,7 @@ if ( !defined( 'WPINC' ) ) {
 }
 
 if ( !file_exists( $this->target_dir_path ) ) {
-	wp_die( '<p>' . __( 'Target directory has not exist.' ) . '</p>' );
+	wp_die( '<p>' . __( 'Target directory does not exist.' ) . '</p>' );
 }
 
 if ( !current_user_can( 'edit_themes' ) ) {
@@ -357,7 +357,7 @@ switch( $action ) {
 					</div>
 
 					<?php if ( $error ) :
-						echo '<div class="error"><p>' . __( 'Oops, no such file exists! Double check the name and try again, merci.' ) . '</p></div>';
+						echo '<div class="error"><p>' . __( 'Oops, such file does not exist! Double check the name and try again, merci.' ) . '</p></div>';
 						wp_safe_redirect( $this->form_url );
 					else : ?>
 
