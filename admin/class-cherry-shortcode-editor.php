@@ -1,13 +1,24 @@
 <?php
+/**
+ * Cherry Shortcodes Templater.
+ *
+ * @package   Cherry_Shortcodes_Templater_Admin
+ * @author    Cherry Team
+ * @license   GPL-3.0+
+ * @copyright 2012 - 2015, Cherry Team
+ */
+
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
+if ( ! class_exists( 'Cherry_Shortcode_Editor' ) ) {
 
 	/**
 	 * Shortcode Editor.
+	 *
+	 * @since 1.0.0
 	 */
 	class Cherry_Shortcode_Editor {
 
@@ -109,7 +120,7 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 		 */
 		public function enqueue_admin_scripts() {
 
-			if ( !isset( $this->page_screen_hook_suffix ) ) {
+			if ( ! isset( $this->page_screen_hook_suffix ) ) {
 				return;
 			}
 
@@ -134,11 +145,7 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 					$active = 0;
 				}
 
-				/////////////////////////////////////////////
-				// Temporary dequeue `jquery-ui` style //
-				/////////////////////////////////////////////
 				wp_dequeue_style( 'jquery-ui' );
-
 				wp_register_style( 'cherry-ui-elements', plugins_url( 'assets/css/cherry-ui-elements.css', __FILE__ ) );
 				wp_register_style( $this->plugin_slug . '-admin-style', plugins_url( 'assets/css/editor.css', __FILE__ ), array( 'cherry-ui-elements' ) );
 				wp_register_script( $this->plugin_slug . '-admin-script', plugins_url( 'assets/js/editor.js', __FILE__ ), array( 'jquery', 'jquery-ui-accordion', 'jquery-ui-tooltip', 'quicktags' ), CHERRY_TEMPLATER_VERSION, true );
@@ -159,35 +166,30 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 							'value' => __( 'Title', 'cherry-shortcodes-templater' ),
 							'open'  => '%%TITLE%%',
 							'close' => '',
-							// 'title' => __( 'Helper information for `Title` macros', 'cherry-shortcodes-templater' ),
 						),
 						'image' => array(
 							'id'    => 'cherry_image',
 							'value' => __( 'Image', 'cherry-shortcodes-templater' ),
 							'open'  => '%%IMAGE%%',
 							'close' => '',
-							// 'title' => __( 'Helper information for `Image` macros', 'cherry-shortcodes-templater' ),
 						),
 						'content' => array(
 							'id'    => 'cherry_content',
 							'value' => __( 'Content', 'cherry-shortcodes-templater' ),
 							'open'  => '%%CONTENT%%',
 							'close' => '',
-							// 'title' => __( 'Helper information for `Content` macros', 'cherry-shortcodes-templater' ),
 						),
 						'button' => array(
 							'id'    => 'cherry_button',
 							'value' => __( 'Button', 'cherry-shortcodes-templater' ),
 							'open'  => '%%BUTTON="btn btn-default"%%',
 							'close' => '',
-							// 'title' => __( 'Helper information for `Button` macros', 'cherry-shortcodes-templater' ),
 						),
 						'permalink' => array(
 							'id'    => 'cherry_permalink',
 							'value' => __( 'Permalink', 'cherry-shortcodes-templater' ),
 							'open'  => '%%PERMALINK%%',
 							'close' => '',
-							// 'title' => __( 'Helper information for `Button` macros', 'cherry-shortcodes-templater' ),
 						),
 					), $shortcode );
 
@@ -213,8 +215,8 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 
 			$this->page_screen_hook_suffix = add_submenu_page(
 				$parent_slug,
-				__( 'Shortcodes Templater', 'cherry-shortcodes-templater '),
-				__( 'Shortcodes Templater', 'cherry-shortcodes-templater '),
+				__( 'Shortcodes Templater', 'cherry-shortcodes-templater' ),
+				__( 'Shortcodes Templater', 'cherry-shortcodes-templater' ),
 				'edit_theme_options',
 				$this->plugin_slug,
 				array( $this, '_display_admin_page' )
@@ -240,9 +242,9 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 		 */
 		public function add_save_button( $editor_html ) {
 
-			if ( !is_writable( CHERRY_TEMPLATER_UPLOAD_DIR ) ) {
+			if ( ! is_writable( CHERRY_TEMPLATER_UPLOAD_DIR ) ) {
 
-				$text = '<p><em>' . __( 'You need to make this file writable to save your changes. See <a href="http://codex.wordpress.org/Changing_File_Permissions">the Codex</a> for more information.' ) . '</em></p>';
+				$text = '<p><em>' . __( 'You need to make this file writable to save your changes. See <a href="http://codex.wordpress.org/Changing_File_Permissions">the Codex</a> for more information.', 'cherry-shortcodes-templater' ) . '</em></p>';
 
 			} else {
 
@@ -259,9 +261,9 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 				$upload_name = sanitize_file_name( wp_basename( CHERRY_TEMPLATER_UPLOAD_DIR ) );
 
 				if ( $upload_name === $location ) {
-					$text = '<input type="submit" name="save" id="save" class="button_ button-primary_" value="' . __( 'Save' ) .'">';
+					$text = '<input type="submit" name="save" id="save" class="button_ button-primary_" value="' . __( 'Save', 'cherry-shortcodes-templater' ) .'">';
 				} else {
-					$text = '<input type="submit" name="copy" id="copy" class="button_ button-primary_" value="' . __( 'Duplicate' ) .'">';
+					$text = '<input type="submit" name="copy" id="copy" class="button_ button-primary_" value="' . __( 'Duplicate', 'cherry-shortcodes-templater' ) .'">';
 				}
 
 			}
@@ -286,7 +288,7 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 			foreach ( (array) $targer_dirs as $dir ) {
 				$_files = (array) $this->scandir( $dir, $types, $depth );
 
-				if ( !empty( $_files ) ) {
+				if ( ! empty( $_files ) ) {
 					$f     = $this->set_allowed_data( $_files, basename( $dir ) );
 					$files = array_merge_recursive( $files, $f );
 				}
@@ -306,8 +308,9 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 		 * @return array
 		 */
 		public function scandir( $path, $types, $depth, $relative_path = '' ) {
-			if ( !is_dir( $path ) )
+			if ( ! is_dir( $path ) ) {
 				return false;
+			}
 
 			$path = untrailingslashit( $path );
 
@@ -317,8 +320,10 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 			}
 
 			$relative_path = trailingslashit( $relative_path );
-			if ( '/' == $relative_path )
+
+			if ( '/' == $relative_path ) {
 				$relative_path = '';
+			}
 
 			$results = scandir( $path );
 			$files   = array();
@@ -331,14 +336,14 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 
 				if ( is_dir( $path . '/' . $result ) ) {
 
-					if ( !$depth || 'CVS' == $result ) {
+					if ( ! $depth || 'CVS' == $result ) {
 						continue;
 					}
 
 					$found = $this->scandir( $path . '/' . $result, $types, $depth - 1 , $relative_path . $result );
 					$files = array_merge_recursive( $files, $found );
 
-				} elseif ( !$types || preg_match( '~\.(' . $_types . ')$~', $result ) ) {
+				} elseif ( ! $types || preg_match( '~\.(' . $_types . ')$~', $result ) ) {
 
 					$files[ $relative_path . $result ] = $path . '/' . $result;
 
@@ -377,9 +382,9 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 							$key => array(
 								'dir'  => dirname( $tag ),
 								'path' => $path,
-							)
-						)
-					)
+							),
+						),
+					),
 				) );
 
 				$count++;
@@ -409,7 +414,7 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 			}
 
 			// Now we got some credentials - try to use them.
-			if ( !WP_Filesystem( $creds ) ) {
+			if ( ! WP_Filesystem( $creds ) ) {
 
 				// Incorrect connection data - ask for credentials again, now with error message.
 				request_filesystem_credentials( $form_url, '', true, $this->target_dir_path );
@@ -435,17 +440,22 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 
 			$form_url    = $this->form_url;
 			$form_url    = wp_nonce_url( $form_url, 'shortcode_templates_editor_admin' );
-			$form_fields = array( 'shortcode-template' ); // Fields that should be preserved across screens.
 
-			if ( !$this->filesystem_init( $form_url, $form_fields ) ) {
+			// Fields that should be preserved across screens.
+			$form_fields = array( 'shortcode-template' );
+
+			if ( ! $this->filesystem_init( $form_url, $form_fields ) ) {
 				return false;
 			}
 
-			$content = wp_unslash( $_POST['shortcode-template'] ); // Sanitize the input.
+			// Sanitize the input.
+			$content = wp_unslash( $_POST['shortcode-template'] );
 
 			// Write into file.
-			if ( !$wp_filesystem->put_contents( $template, $content, FS_CHMOD_FILE ) ) {
-				return new WP_Error( 'writing_error', 'Error when writing file' ); // Return error object.
+			if ( ! $wp_filesystem->put_contents( $template, $content, FS_CHMOD_FILE ) ) {
+
+				// Return error object.
+				return new WP_Error( 'writing_error', 'Error when writing file' );
 			}
 
 			return $template;
@@ -463,19 +473,21 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 			$form_url = $this->form_url;
 			$form_url = wp_nonce_url( $form_url, 'shortcode_templates_editor_admin' );
 
-			if ( !$this->filesystem_init( $form_url ) ) {
+			if ( ! $this->filesystem_init( $form_url ) ) {
 				return false;
 			}
 
 			$content = '';
 
 			// Read the file.
-			if ( $wp_filesystem->exists( $template ) ) : // Check for existence.
+			if ( $wp_filesystem->exists( $template ) ) :
 
 				$content = $wp_filesystem->get_contents( $template );
 
-				if ( !$content ) {
-					return new WP_Error( 'reading_error', 'Error when reading file' ); // Return error object.
+				if ( ! $content ) {
+
+					// Return error object.
+					return new WP_Error( 'reading_error', 'Error when reading file' );
 				}
 
 			endif;
@@ -491,22 +503,24 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 		 */
 		public static function get_contents( $template ) {
 
-			if ( !function_exists( 'WP_Filesystem' ) ) {
+			if ( ! function_exists( 'WP_Filesystem' ) ) {
 				include_once( ABSPATH . '/wp-admin/includes/file.php' );
 			}
 
 			WP_Filesystem();
 			global $wp_filesystem;
 
-			if ( !$wp_filesystem->exists( $template ) ) { // Check for existence.
+			if ( ! $wp_filesystem->exists( $template ) ) {
 				return false;
 			}
 
 			// Read the file.
 			$content = $wp_filesystem->get_contents( $template );
 
-			if ( !$content ) {
-				return new WP_Error( 'reading_error', 'Error when reading file' ); // Return error object.
+			if ( ! $content ) {
+
+				// Return error object.
+				return new WP_Error( 'reading_error', 'Error when reading file' );
 			}
 
 			return $content;
@@ -521,7 +535,7 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 		 */
 		public static function dirlist( $shortcode ) {
 
-			if ( !function_exists( 'WP_Filesystem' ) ) {
+			if ( ! function_exists( 'WP_Filesystem' ) ) {
 				include_once( ABSPATH . '/wp-admin/includes/file.php' );
 			}
 
@@ -540,7 +554,7 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 				}
 			endforeach;
 
-			if ( !$necessary_template ) {
+			if ( ! $necessary_template ) {
 				return false;
 			}
 
@@ -551,14 +565,14 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 
 				$dir = trailingslashit( $d ) . Cherry_Shortcodes_Templater::$dir_name . $shortcode;
 
-				if ( !file_exists( $dir ) ) {
+				if ( ! file_exists( $dir ) ) {
 					continue;
 				}
 
 				// Get details for files in a directory.
 				$list = $wp_filesystem->dirlist( $dir );
 
-				if ( !$list ) {
+				if ( ! $list ) {
 					continue;
 				}
 
@@ -593,7 +607,7 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 			$copied   = false;
 			$form_url = wp_nonce_url( $this->form_url, 'shortcode_templates_editor_admin' );
 
-			if ( !$this->filesystem_init( $form_url ) ) {
+			if ( ! $this->filesystem_init( $form_url ) ) {
 				return false;
 			}
 
@@ -621,7 +635,7 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 			$deleted  = false;
 			$form_url = wp_nonce_url( $this->form_url, 'shortcode_templates_editor_admin' );
 
-			if ( !$this->filesystem_init( $form_url ) ) {
+			if ( ! $this->filesystem_init( $form_url ) ) {
 				return false;
 			}
 
@@ -645,7 +659,7 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 
 			$form_url = wp_nonce_url( $this->form_url, 'shortcode_templates_editor_admin' );
 
-			if ( !$this->filesystem_init( $form_url ) ) {
+			if ( ! $this->filesystem_init( $form_url ) ) {
 				return false;
 			}
 
@@ -669,12 +683,13 @@ if ( !class_exists( 'Cherry_Shortcode_Editor' ) ) {
 		public static function get_instance() {
 
 			// If the single instance hasn't been set, set it now.
-			if ( null == self::$instance )
+			if ( null == self::$instance ) {
 				self::$instance = new self;
+			}
 
 			return self::$instance;
 		}
 	}
 
 	Cherry_Shortcode_Editor::get_instance();
-} ?>
+}
