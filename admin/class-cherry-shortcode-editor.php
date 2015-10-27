@@ -58,7 +58,6 @@ if ( ! class_exists( 'Cherry_Shortcode_Editor' ) ) {
 		 * Sets up needed actions/filters for the class to initialize.
 		 *
 		 * @since 1.0.0
-		 * @param str   $target_dir_path A path to the templates directory.
 		 */
 		public function __construct() {
 			$plugin                = Cherry_Shortcodes_Templater::get_instance();
@@ -72,7 +71,10 @@ if ( ! class_exists( 'Cherry_Shortcode_Editor' ) ) {
 
 			/**
 			 * Default templates.
-			 * @var array
+			 *
+			 * Dafault templates structure.
+			 *
+			 * @since 1.0.0
 			 *
 			 * array(
 			 * 	'shortcode_name_1' => array(
@@ -265,7 +267,6 @@ if ( ! class_exists( 'Cherry_Shortcode_Editor' ) ) {
 				} else {
 					$text = '<input type="submit" name="copy" id="copy" class="button_ button-primary_" value="' . __( 'Duplicate', 'cherry-shortcodes-templater' ) .'">';
 				}
-
 			}
 
 			$editor_html = str_replace( '</textarea>', '</textarea>' . $text, $editor_html );
@@ -277,10 +278,10 @@ if ( ! class_exists( 'Cherry_Shortcode_Editor' ) ) {
 		 * Return files in the target's directories.
 		 *
 		 * @since  1.0.0
-		 * @param  array|string  $targer_dirs A target directories.
-		 * @param  array|string  $types       Optional. Array of extensions to return. Defaults to *.tmpl files.
-		 * @param  int           $depth       Optional. How deep to search for files. Defaults to -1 depth is infinite.
-		 * @return array                      Array of files
+		 * @param  array|string $targer_dirs A target directories.
+		 * @param  array|string $types       Optional. Array of extensions to return. Defaults to *.tmpl files.
+		 * @param  int          $depth       Optional. How deep to search for files. Defaults to -1 depth is infinite.
+		 * @return array                     Array of files
 		 */
 		public function get_the_files( $targer_dirs, $types = 'tmpl', $depth = -1 ) {
 			$files = array();
@@ -358,7 +359,7 @@ if ( ! class_exists( 'Cherry_Shortcode_Editor' ) ) {
 		 * To prepare allowed data.
 		 *
 		 * @since  1.0.0
-		 * @param  array  $files
+		 * @param  array  $files Set of files data.
 		 * @param  string $dir   Directory name.
 		 * @return array
 		 */
@@ -397,8 +398,9 @@ if ( ! class_exists( 'Cherry_Shortcode_Editor' ) ) {
 		 * Initialize Filesystem object.
 		 *
 		 * @since  1.0.0
-		 * @param  array    $fields Form fields.
-		 * @return bool|str false on failure, stored text on success
+		 * @param  string $form_url URL to POST the form to.
+		 * @param  array  $fields   Form fields.
+		 * @return bool|str         false on failure, stored text on success
 		 */
 		public function filesystem_init( $form_url, $fields = null ) {
 			global $wp_filesystem;
@@ -409,7 +411,7 @@ if ( ! class_exists( 'Cherry_Shortcode_Editor' ) ) {
 				 * If we comes here - we don't have credentials
 				 * so the request for them is displaying
 				 * no need for further processing.
-				 **/
+				 */
 				return false;
 			}
 
@@ -530,8 +532,8 @@ if ( ! class_exists( 'Cherry_Shortcode_Editor' ) ) {
 		 * Get files in a directory.
 		 *
 		 * @since  1.0.0
-		 * @param  string     $shortcode Shortcode tag name.
-		 * @return array|bool            Array of files. False if unable to list directory contents.
+		 * @param  string $shortcode Shortcode tag name.
+		 * @return array|bool Array of files. False if unable to list directory contents.
 		 */
 		public static function dirlist( $shortcode ) {
 

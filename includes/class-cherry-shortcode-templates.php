@@ -34,7 +34,6 @@ if ( ! class_exists( 'Cherry_Shortcode_Templates' ) ) {
 		 * Sets up needed actions/filters for the class to initialize.
 		 *
 		 * @since 1.0.0
-		 * @param str $target_dir_path A path to the templates directory.
 		 */
 		public function __construct() {
 			// Filters a shortcode's data.
