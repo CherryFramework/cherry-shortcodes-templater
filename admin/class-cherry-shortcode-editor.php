@@ -195,8 +195,8 @@ if ( ! class_exists( 'Cherry_Shortcode_Editor' ) ) {
 						),
 					), $shortcode );
 
-				wp_localize_script( $this->plugin_slug . '-admin-script', 'macros_buttons', $macros_buttons );
-				wp_localize_script( $this->plugin_slug . '-admin-script', 'active_acc', (string) $active );
+				wp_localize_script( $this->plugin_slug . '-admin-script', 'macrosButtons', $macros_buttons );
+				wp_localize_script( $this->plugin_slug . '-admin-script', 'activeAcc', (string) $active );
 			}
 		}
 

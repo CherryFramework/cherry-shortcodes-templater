@@ -2,7 +2,7 @@ jQuery( document ).ready(function() {
 	jQuery( '#nav-container' ).accordion({
 		collapsible: true,
 		heightStyle: 'content',
-		active: parseInt( active_acc )
+		active: parseInt( activeAcc )
 	});
 
 	jQuery( '#edit-action' ).click(function() {
@@ -23,7 +23,7 @@ jQuery( window ).load(function() {
 		newFile = jQuery( '#new-file-name' ),
 		rename   = jQuery( '#rename' );
 
-	jQuery.each( macros_buttons, function( index, value ) {
+	jQuery.each( macrosButtons, function( index, value ) {
 		addButton( value );
 	});
 
@@ -35,7 +35,7 @@ jQuery( window ).load(function() {
 	});
 
 	if ( 'default.tmpl' === current ) {
-		jQuery( '#wp-shortcode-template-editor-container' )
+		editor
 			.find( 'input,textarea' )
 			.attr( 'disabled', true );
 	}
@@ -44,19 +44,19 @@ jQuery( window ).load(function() {
 		jQuery( '#file-name-error' ).hide();
 	});
 
-	rename.on('click', function() {
-		var filename = newFile.val();
-		filenameCheck = /([0-9a-z_-]+[\.][0-9a-z_-]{1,4})$/.test(filename);
+	rename.on( 'click', function() {
+		var filename = newFile.val(),
+			filenameCheck = /([0-9a-z_-]+[\.][0-9a-z_-]{1,4})$/.test( filename );
 
-		if ( filenameCheck == false ){
-			jQuery('#file-name-error').show();
+		if ( false === filenameCheck ) {
+			jQuery( '#file-name-error' ).show();
 
 			return false;
 		}
 	});
 });
 
-function addButton($obj) {
+function addButton( $obj ) {
 	/* Adding Quicktag buttons to the editor WordPress
 	 * - Button HTML ID (required)
 	 * - Button display, value="" attribute (required)
