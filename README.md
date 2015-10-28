@@ -3,6 +3,14 @@
 
 ##Change log##
 
+#### v1.0.2 ####
+
+* ADD: .pot file
+* FIX: Updater logic
+* FIX: Coding standards
+* FIX: WooCommerce-plugins conflict
+* FIX: Set active shortcode in dialog
+
 #### v1.0.1 ####
 
 * ADD: `permalink` button
