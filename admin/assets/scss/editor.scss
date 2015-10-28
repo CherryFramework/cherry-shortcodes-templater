@@ -1,7 +1,7 @@
 $color-1: #2a445d;
 $color-2: #4d6377;
 
-.row {
+.cherry-row {
 	&:before,
 	&:after {
 		content: " ";
@@ -11,16 +11,16 @@ $color-2: #4d6377;
 		clear: both;
 	}
 }
-.column-1,
-.column-2 {
+.cherry-column-1,
+.cherry-column-2 {
 	position: relative;
 	float: left;
 }
-.column-1 {
+.cherry-column-1 {
 	width: 20%;
 	margin-right: 3%
 }
-.column-2 {
+.cherry-column-2 {
 	width: 77%;
 }
 
@@ -54,6 +54,9 @@ $color-2: #4d6377;
 		&:active {
 			outline: none;
 		}
+	}
+	.ui-icon {
+		display: inline-block;
 	}
 	.item {
 		display: none;

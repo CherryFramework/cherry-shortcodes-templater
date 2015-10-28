@@ -1,14 +1,23 @@
 <?php
+/**
+ * Represents the view for the `Shortcodes Templater`.
+ *
+ * @package   Cherry_Shortcodes_Templater_Admin
+ * @author    Cherry Team
+ * @license   GPL-3.0+
+ * @copyright 2012 - 2015, Cherry Team
+ */
+
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( !file_exists( $this->target_dir_path ) ) {
-	wp_die( '<p>' . __( 'Target directory has not exist.' ) . '</p>' );
+if ( ! file_exists( $this->target_dir_path ) ) {
+	wp_die( '<p>' . __( 'Target directory does not exist.' ) . '</p>' );
 }
 
-if ( !current_user_can( 'edit_themes' ) ) {
+if ( ! current_user_can( 'edit_themes' ) ) {
 	wp_die( '<p>' . __( 'You do not have sufficient permissions to edit templates for this site.' ) . '</p>' );
 }
 
@@ -53,9 +62,6 @@ if ( isset( $_GET['location'] ) ) {
 $query_args['file']     = $file;
 $query_args['location'] = $upload_name;
 
-// Set the URL to which the form should be submitted.
-// $this->form_url = 'themes.php?page=' . $this->plugin_slug;
-
 // Set part of absolute path to the file.
 if ( $location == $upload_name ) {
 	$abs_file = CHERRY_TEMPLATER_UPLOAD_DIR;
@@ -71,7 +77,7 @@ if ( isset( $_POST['relative-file'] ) ) {
 
 $file = trailingslashit( $abs_file ) . $relative_file;
 
-if ( !is_file( $file ) ) {
+if ( ! is_file( $file ) ) {
 	$error = true;
 } else {
 	// Get a file name.
@@ -92,14 +98,13 @@ if ( isset( $_POST['save'] ) ) {
 	$action = '';
 }
 
-switch( $action ) {
-
+switch ( $action ) {
 	case 'save':
 		$query_args['file'] = urlencode( $relative_file );
 
 		$content = self::filesystem_write( $file );
 
-		if ( $content && !is_wp_error( $content ) ) {
+		if ( $content && ! is_wp_error( $content ) ) {
 			$query_args = array_merge( $query_args, array( $action => 'true' ) );
 		}
 		$loc = add_query_arg( $query_args, $this->form_url );
@@ -149,6 +154,7 @@ switch( $action ) {
 			$query_args['file'] = urlencode( $_file );
 			$query_args         = array_merge( $query_args, array( 'duplicate' => 'true' ) );
 		}
+
 		$loc = add_query_arg( $query_args, $this->form_url );
 
 		/**
@@ -213,6 +219,7 @@ switch( $action ) {
 	case 'rename':
 
 		$new_file = '';
+
 		if ( isset( $_POST['new-file-name'] ) ) {
 			$new_file = trailingslashit( $path_to_shortcode_templates ) . sanitize_file_name( $_POST['new-file-name'] );
 		}
@@ -243,7 +250,8 @@ switch( $action ) {
 	default:
 
 		$content = '';
-		if ( !$error ) {
+
+		if ( ! $error ) {
 			$_content = $this->filesystem_read( $file );
 
 			if ( false === $_content ) {
@@ -275,8 +283,8 @@ switch( $action ) {
 				<div id="message_" class="updated_ templater-updated_"><?php _e( 'File with the same name already exists.', 'cherry-shortcodes-templater' ) ?></div>
 			<?php endif; ?>
 
-			<div class="row">
-				<div class="column-1">
+			<div class="cherry-row">
+				<div class="cherry-column-1">
 					<div id="nav-container" class="box-primary_">
 						<?php
 							if ( class_exists( 'Cherry_Shortcodes_Data' ) ) {
@@ -288,7 +296,7 @@ switch( $action ) {
 							$_count = 0;
 							foreach ( $default_templates as $tag => $locations ) :
 
-								if ( !isset( $registered_shortcodes[ $tag ] ) ) {
+								if ( ! isset( $registered_shortcodes[ $tag ] ) ) {
 									continue;
 								} ?>
 
@@ -310,7 +318,6 @@ switch( $action ) {
 
 										<?php unset( $locations[ $target ]['default'] );
 										break;
-
 										}
 									} ?>
 
@@ -335,7 +342,7 @@ switch( $action ) {
 					</div><!--nav-container-->
 				</div><!--.column-1-->
 
-				<div class="column-2">
+				<div class="cherry-column-2">
 
 					<?php if ( isset( $_GET['notemplate'] ) ) { ?>
 						<div class="main-title_">
@@ -344,7 +351,7 @@ switch( $action ) {
 						<?php break;
 					}
 
-					if ( !isset( $_GET['location'] ) ) { ?>
+					if ( ! isset( $_GET['location'] ) ) { ?>
 						<div class="main-title_">
 							<h2><?php printf( __( 'Welcome to the <strong>%s</strong>!', 'cherry-shortcodes-templater' ), esc_html( get_admin_page_title() ) ); ?></h2>
 						</div>
@@ -357,11 +364,11 @@ switch( $action ) {
 					</div>
 
 					<?php if ( $error ) :
-						echo '<div class="error"><p>' . __( 'Oops, no such file exists! Double check the name and try again, merci.' ) . '</p></div>';
+						echo '<div class="error"><p>' . __( 'Oops, such file does not exist! Double check the name and try again, merci.' ) . '</p></div>';
 						wp_safe_redirect( $this->form_url );
 					else : ?>
 
-						<?php if ( !empty( $file ) ) : ?>
+						<?php if ( ! empty( $file ) ) : ?>
 
 							<ol class="breadcrumb_">
 
@@ -400,11 +407,11 @@ switch( $action ) {
 									<?php if ( $location == $upload_name ) { ?>
 
 									<div class="action-dropdown_">
-										<a href="#" id="edit-action" class="button_ button-default_"><span class="dashicons dashicons-welcome-write-blog"></span><?php _e( 'Edit' ); ?></a>
+										<a href="#" id="edit-action" class="button_ button-default_"><span class="dashicons dashicons-welcome-write-blog"></span><?php _e( 'Edit', 'cherry-shortcodes-templater' ); ?></a>
 										<ul id="action-dropdown-list_">
 											<li><a href="#TB_inline?width=600&amp;height=170&amp;inlineId=rename-dialog" title="<?php _e( 'Rename dialog' , 'cherry-shortcodes-templater' ); ?>" class="thickbox"><?php _e( 'Rename', 'cherry-shortcodes-templater' ); ?></a></li>
-											<li><input type="submit" name="copy" id="copy" value="<?php _e( 'Duplicate' ); ?>"></li>
-											<li><input type="submit" name="delete" id="delete" value="<?php _e( 'Delete' ); ?>"></li>
+											<li><input type="submit" name="copy" id="copy" value="<?php _e( 'Duplicate', 'cherry-shortcodes-templater' ); ?>"></li>
+											<li><input type="submit" name="delete" id="delete" value="<?php _e( 'Delete', 'cherry-shortcodes-templater' ); ?>"></li>
 										</ul>
 									</div>
 
@@ -425,8 +432,8 @@ switch( $action ) {
 											<input type="text" id="new-file-name" name="new-file-name" value="<?php echo $file_name; ?>" placeholder="<?php _e( 'Enter a new file name', 'cherry-shortcodes-templater' ); ?>">
 											<span id="file-name-error"><?php _e( 'Please enter a valid filename.', 'cherry-shortcodes-templater' ); ?></span>
 											<div class="rename-form-btns-wrap">
-												<input type="submit" name="rename" id="rename" class="button_ button-primary_" value="<?php _e( 'Save' ); ?>">
-												<a href="#" class="button_ button-default_" id="TB_closeWindowButton"><?php _e( 'Cancel' ); ?></a>
+												<input type="submit" name="rename" id="rename" class="button_ button-primary_" value="<?php _e( 'Save', 'cherry-shortcodes-templater' ); ?>">
+												<a href="#" class="button_ button-default_" id="TB_closeWindowButton"><?php _e( 'Cancel', 'cherry-shortcodes-templater' ); ?></a>
 											</div>
 										</form>
 									</div><!--.cherry-ui-core-->
@@ -445,4 +452,4 @@ switch( $action ) {
 		</div><!--.wrap-->
 
 	<?php break;
-} ?>
+}
