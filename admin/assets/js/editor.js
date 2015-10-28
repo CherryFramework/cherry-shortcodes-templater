@@ -1,8 +1,9 @@
+/* global activeAcc, macrosButtons, QTags */
 jQuery( document ).ready(function() {
 	jQuery( '#nav-container' ).accordion({
 		collapsible: true,
 		heightStyle: 'content',
-		active: parseInt( activeAcc )
+		active: parseInt( activeAcc, 10 )
 	});
 
 	jQuery( '#edit-action' ).click(function() {

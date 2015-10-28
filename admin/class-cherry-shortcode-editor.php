@@ -128,76 +128,77 @@ if ( ! class_exists( 'Cherry_Shortcode_Editor' ) ) {
 
 			$screen = get_current_screen();
 
-			if ( $this->page_screen_hook_suffix == $screen->id ) {
-
-				$default_templates  = self::get_the_files( self::get_the_dirs() );
-				$allowed_shortcodes = array_keys( $default_templates );
-
-				if ( isset( $_GET['file'] ) ) {
-					$file      = sanitize_text_field( $_GET['file'] );
-					$shortcode = wp_basename( dirname( $file ) );
-				} else {
-					reset( $allowed_shortcodes );
-					$shortcode = current( $allowed_shortcodes );
-				}
-
-				$active = array_search( $shortcode, $allowed_shortcodes );
-
-				if ( false === $active ) {
-					$active = 0;
-				}
-
-				wp_dequeue_style( 'jquery-ui' );
-				wp_register_style( 'cherry-ui-elements', plugins_url( 'assets/css/cherry-ui-elements.css', __FILE__ ) );
-				wp_register_style( $this->plugin_slug . '-admin-style', plugins_url( 'assets/css/editor.css', __FILE__ ), array( 'cherry-ui-elements' ) );
-				wp_register_script( $this->plugin_slug . '-admin-script', plugins_url( 'assets/js/editor.js', __FILE__ ), array( 'jquery', 'jquery-ui-accordion', 'jquery-ui-tooltip', 'quicktags' ), CHERRY_TEMPLATER_VERSION, true );
-
-				wp_enqueue_style( $this->plugin_slug . '-admin-style' );
-				wp_enqueue_script( $this->plugin_slug . '-admin-script' );
-
-				/**
-				 * Filters a `macros buttons` array.
-				 *
-				 * @since 1.0.0
-				 * @param array  $macros_buttons
-				 * @param string $shortcode      Shortcode name.
-				 */
-				$macros_buttons = apply_filters( 'cherry_templater_macros_buttons', array(
-						'title' => array(
-							'id'    => 'cherry_title',
-							'value' => __( 'Title', 'cherry-shortcodes-templater' ),
-							'open'  => '%%TITLE%%',
-							'close' => '',
-						),
-						'image' => array(
-							'id'    => 'cherry_image',
-							'value' => __( 'Image', 'cherry-shortcodes-templater' ),
-							'open'  => '%%IMAGE%%',
-							'close' => '',
-						),
-						'content' => array(
-							'id'    => 'cherry_content',
-							'value' => __( 'Content', 'cherry-shortcodes-templater' ),
-							'open'  => '%%CONTENT%%',
-							'close' => '',
-						),
-						'button' => array(
-							'id'    => 'cherry_button',
-							'value' => __( 'Button', 'cherry-shortcodes-templater' ),
-							'open'  => '%%BUTTON="btn btn-default"%%',
-							'close' => '',
-						),
-						'permalink' => array(
-							'id'    => 'cherry_permalink',
-							'value' => __( 'Permalink', 'cherry-shortcodes-templater' ),
-							'open'  => '%%PERMALINK%%',
-							'close' => '',
-						),
-					), $shortcode );
-
-				wp_localize_script( $this->plugin_slug . '-admin-script', 'macrosButtons', $macros_buttons );
-				wp_localize_script( $this->plugin_slug . '-admin-script', 'activeAcc', (string) $active );
+			if ( $this->page_screen_hook_suffix != $screen->id ) {
+				return;
 			}
+
+			$default_templates  = self::get_the_files( self::get_the_dirs() );
+			$allowed_shortcodes = array_keys( $default_templates );
+
+			if ( isset( $_GET['file'] ) ) {
+				$file      = sanitize_text_field( $_GET['file'] );
+				$shortcode = wp_basename( dirname( $file ) );
+			} else {
+				reset( $allowed_shortcodes );
+				$shortcode = current( $allowed_shortcodes );
+			}
+
+			$active = array_search( $shortcode, $allowed_shortcodes );
+
+			if ( false === $active ) {
+				$active = 0;
+			}
+
+			wp_dequeue_style( 'jquery-ui' );
+			wp_register_style( 'cherry-ui-elements', plugins_url( 'assets/css/cherry-ui-elements.css', __FILE__ ) );
+			wp_register_style( $this->plugin_slug . '-admin-style', plugins_url( 'assets/css/editor.css', __FILE__ ), array( 'cherry-ui-elements' ), CHERRY_TEMPLATER_VERSION );
+			wp_register_script( $this->plugin_slug . '-admin-script', plugins_url( 'assets/js/editor.min.js', __FILE__ ), array( 'jquery', 'jquery-ui-accordion', 'jquery-ui-tooltip', 'quicktags' ), CHERRY_TEMPLATER_VERSION, true );
+
+			wp_enqueue_style( $this->plugin_slug . '-admin-style' );
+			wp_enqueue_script( $this->plugin_slug . '-admin-script' );
+
+			/**
+			 * Filters a `macros buttons` array.
+			 *
+			 * @since 1.0.0
+			 * @param array  $macros_buttons
+			 * @param string $shortcode      Shortcode name.
+			 */
+			$macros_buttons = apply_filters( 'cherry_templater_macros_buttons', array(
+					'title' => array(
+						'id'    => 'cherry_title',
+						'value' => __( 'Title', 'cherry-shortcodes-templater' ),
+						'open'  => '%%TITLE%%',
+						'close' => '',
+					),
+					'image' => array(
+						'id'    => 'cherry_image',
+						'value' => __( 'Image', 'cherry-shortcodes-templater' ),
+						'open'  => '%%IMAGE%%',
+						'close' => '',
+					),
+					'content' => array(
+						'id'    => 'cherry_content',
+						'value' => __( 'Content', 'cherry-shortcodes-templater' ),
+						'open'  => '%%CONTENT%%',
+						'close' => '',
+					),
+					'button' => array(
+						'id'    => 'cherry_button',
+						'value' => __( 'Button', 'cherry-shortcodes-templater' ),
+						'open'  => '%%BUTTON="btn btn-default"%%',
+						'close' => '',
+					),
+					'permalink' => array(
+						'id'    => 'cherry_permalink',
+						'value' => __( 'Permalink', 'cherry-shortcodes-templater' ),
+						'open'  => '%%PERMALINK%%',
+						'close' => '',
+					),
+				), $shortcode );
+
+			wp_localize_script( $this->plugin_slug . '-admin-script', 'macrosButtons', $macros_buttons );
+			wp_localize_script( $this->plugin_slug . '-admin-script', 'activeAcc', (string) $active );
 		}
 
 		/**

@@ -283,8 +283,8 @@ switch ( $action ) {
 				<div id="message_" class="updated_ templater-updated_"><?php _e( 'File with the same name already exists.', 'cherry-shortcodes-templater' ) ?></div>
 			<?php endif; ?>
 
-			<div class="row">
-				<div class="column-1">
+			<div class="cherry-row">
+				<div class="cherry-column-1">
 					<div id="nav-container" class="box-primary_">
 						<?php
 							if ( class_exists( 'Cherry_Shortcodes_Data' ) ) {
@@ -342,7 +342,7 @@ switch ( $action ) {
 					</div><!--nav-container-->
 				</div><!--.column-1-->
 
-				<div class="column-2">
+				<div class="cherry-column-2">
 
 					<?php if ( isset( $_GET['notemplate'] ) ) { ?>
 						<div class="main-title_">
