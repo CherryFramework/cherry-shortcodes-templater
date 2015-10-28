@@ -3,7 +3,7 @@
  * Plugin Name: Cherry Shortcodes Templater
  * Plugin URI:  http://www.cherryframework.com/
  * Description: Extends a Cherry Shortcodes plugin.
- * Version:     1.0.1
+ * Version:     1.0.2-beta
  * Author:      Cherry Team
  * Author URI:  http://www.cherryframework.com/
  * Text Domain: cherry-shortcodes-templater
@@ -91,7 +91,7 @@ if ( ! class_exists( 'Cherry_Shortcodes_Templater' ) ) {
 			 *
 			 * @since 1.0.0
 			 */
-			define( 'CHERRY_TEMPLATER_VERSION', '1.0.1' );
+			define( 'CHERRY_TEMPLATER_VERSION', '1.0.2-beta' );
 
 			/**
 			 * Set the slug of the plugin.
