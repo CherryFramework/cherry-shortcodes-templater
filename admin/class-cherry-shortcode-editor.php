@@ -135,6 +135,18 @@ if ( ! class_exists( 'Cherry_Shortcode_Editor' ) ) {
 			$default_templates  = self::get_the_files( self::get_the_dirs() );
 			$allowed_shortcodes = array_keys( $default_templates );
 
+			foreach ( $allowed_shortcodes as $k => $tag ) {
+
+				if ( ! shortcode_exists( $tag ) ) {
+					if ( ! shortcode_exists( 'cherry_' . $tag ) ) {
+						unset( $allowed_shortcodes[ $k ] );
+					}
+				}
+			}
+
+			// Rebase array keys after unsetting elements.
+			$allowed_shortcodes = array_values( $allowed_shortcodes );
+
 			if ( isset( $_GET['file'] ) ) {
 				$file      = sanitize_text_field( $_GET['file'] );
 				$shortcode = wp_basename( dirname( $file ) );
