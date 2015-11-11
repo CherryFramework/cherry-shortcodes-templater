@@ -3,24 +3,29 @@
  * Plugin Name: Cherry Shortcodes Templater
  * Plugin URI:  http://www.cherryframework.com/
  * Description: Extends a Cherry Shortcodes plugin.
- * Version:     1.0.1
+ * Version:     1.0.2-beta
  * Author:      Cherry Team
  * Author URI:  http://www.cherryframework.com/
  * Text Domain: cherry-shortcodes-templater
  * License:     GPL-3.0+
  * License URI: http://www.gnu.org/licenses/gpl-3.0.txt
  * Domain Path: /languages
+ *
+ * @package  Cherry Testimonials
+ * @category Core
+ * @author   Cherry Team
+ * @license  GPL-3.0+
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( !class_exists( 'Cherry_Shortcodes_Templater' ) ) {
+if ( ! class_exists( 'Cherry_Shortcodes_Templater' ) ) {
 
 	/**
-	 * Sets up and initializes the Cherry Testimonials plugin.
+	 * Sets up and initializes the Cherry Shortcodes Templater plugin.
 	 *
 	 * @since 1.0.0
 	 */
@@ -58,7 +63,6 @@ if ( !class_exists( 'Cherry_Shortcodes_Templater' ) ) {
 		public function __construct() {
 
 			// Set the constants needed by the plugin.
-			// add_action( 'plugins_loaded', array( $this, 'constants' ), 1 );
 			$this->constants();
 
 			// Internationalize the text strings used.
@@ -70,12 +74,8 @@ if ( !class_exists( 'Cherry_Shortcodes_Templater' ) ) {
 			// Load the admin files.
 			add_action( 'plugins_loaded', array( $this, 'admin' ), 4 );
 
-			/**
-			 * Register hooks that are fired when the plugin is activated or deactivated.
-			 *
-			 * @since  1.0.0
-			 */
-			register_activation_hook( __FILE__,   array( __CLASS__, 'activate' ) );
+			// Register activation and deactivation hook.
+			register_activation_hook( __FILE__, array( __CLASS__, 'activate' ) );
 			register_deactivation_hook( __FILE__, array( __CLASS__, 'deactivate' ) );
 		}
 
@@ -91,7 +91,7 @@ if ( !class_exists( 'Cherry_Shortcodes_Templater' ) ) {
 			 *
 			 * @since 1.0.0
 			 */
-			define( 'CHERRY_TEMPLATER_VERSION', '1.0.1' );
+			define( 'CHERRY_TEMPLATER_VERSION', '1.0.2-beta' );
 
 			/**
 			 * Set the slug of the plugin.
@@ -131,13 +131,11 @@ if ( !class_exists( 'Cherry_Shortcodes_Templater' ) ) {
 		 * @since 1.0.0
 		 */
 		public function lang() {
-			// load_plugin_textdomain( 'cherry-shortcodes-templater', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-
 			$domain = $this->plugin_slug;
 			$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 
 			load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
-			load_plugin_textdomain( $domain, FALSE, basename( plugin_dir_path( dirname( __FILE__ ) ) ) . '/languages/' );
+			load_plugin_textdomain( $domain, false, basename( plugin_dir_path( dirname( __FILE__ ) ) ) . '/languages/' );
 		}
 
 		/**
@@ -160,11 +158,11 @@ if ( !class_exists( 'Cherry_Shortcodes_Templater' ) ) {
 				require_once( CHERRY_TEMPLATER_DIR . 'admin/includes/class-cherry-update/class-cherry-plugin-update.php' );
 
 				$Cherry_Plugin_Update = new Cherry_Plugin_Update();
-				$Cherry_Plugin_Update -> init( array(
-						'version'			=> CHERRY_TEMPLATER_VERSION,
-						'slug'				=> CHERRY_TEMPLATER_SLUG,
-						'repository_name'	=> CHERRY_TEMPLATER_SLUG
-				));
+				$Cherry_Plugin_Update->init( array(
+					'version'         => CHERRY_TEMPLATER_VERSION,
+					'slug'            => CHERRY_TEMPLATER_SLUG,
+					'repository_name' => CHERRY_TEMPLATER_SLUG,
+				) );
 			}
 		}
 
@@ -188,6 +186,12 @@ if ( !class_exists( 'Cherry_Shortcodes_Templater' ) ) {
 			do_action( 'cherry_templater_deactivate' );
 		}
 
+		/**
+		 * Recursive directory creation based on full path.
+		 *
+		 * @since 1.0.0
+		 * @return bool Whether the path was created or not. True if path already exists.
+		 */
 		public static function template_dir() {
 			$upload_dir = wp_upload_dir();
 			$path       = trailingslashit( path_join( $upload_dir['basedir'], self::$dir_name ) );
@@ -214,14 +218,13 @@ if ( !class_exists( 'Cherry_Shortcodes_Templater' ) ) {
 		public static function get_instance() {
 
 			// If the single instance hasn't been set, set it now.
-			if ( null == self::$instance )
+			if ( null == self::$instance ) {
 				self::$instance = new self;
+			}
 
 			return self::$instance;
 		}
-
 	}
 
-	// add_action( 'plugins_loaded', array( 'Cherry_Shortcodes_Templater', 'get_instance' ), 0 );
 	Cherry_Shortcodes_Templater::get_instance();
 }
