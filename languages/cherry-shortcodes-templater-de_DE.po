@@ -1,0 +1,162 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cherry-shortcodes-templater\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-30 13:04+0200\n"
+"PO-Revision-Date: 2015-10-30 13:04+0200\n"
+"Last-Translator: J.L.Dokter <jldokter@gmail.com>\n"
+"Language-Team: Cherry Team <support@cherryframework.com>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2;_n_noop:1,2;_x:1,2c;_nx:1,2,4c;"
+"_nx_noop:1,2,3c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-cherry-shortcode-editor.php:92
+#, php-format
+msgid ""
+"Sorry, but target directory (<strong>%1$s</strong>) is not created. Maybe "
+"<strong>%2$s</strong> the directory is not writable."
+msgstr ""
+"Entschuldigung, aber Zielverzeichnis (<strong>%1$s</strong>) ist nicht "
+"erstellt. Vielleicht <strong>%2$s</strong> ist das Verzeichnis nicht "
+"schreibbar."
+
+#: admin/class-cherry-shortcode-editor.php:159
+msgid "Title"
+msgstr "Titel"
+
+#: admin/class-cherry-shortcode-editor.php:166
+msgid "Image"
+msgstr "Bild"
+
+#: admin/class-cherry-shortcode-editor.php:173
+msgid "Content"
+msgstr "Inhalt"
+
+#: admin/class-cherry-shortcode-editor.php:180
+msgid "Button"
+msgstr "Button"
+
+#: admin/class-cherry-shortcode-editor.php:187
+msgid "Permalink"
+msgstr "Permalink"
+
+#: admin/class-cherry-shortcode-editor.php:216
+#: admin/class-cherry-shortcode-editor.php:217
+msgid "Shortcodes Templater"
+msgstr "Shortcodes-Vorlager"
+
+#: admin/class-cherry-shortcode-editor.php:245
+msgid ""
+"You need to make this file writable to save your changes. See <a href="
+"\"http://codex.wordpress.org/Changing_File_Permissions\">the Codex</a> for "
+"more information."
+msgstr ""
+"Sie müssen diese Datei schreibbar machen, um die Änderungen zu speichern. "
+"Siehe <a href=„http://codex.wordpress.org/Changing_File_Permissions“>den "
+"Codex</a> für weitere Informationen."
+
+#: admin/class-cherry-shortcode-editor.php:262 admin/views/editor-views.php:428
+msgid "Save"
+msgstr "Speichern"
+
+#: admin/class-cherry-shortcode-editor.php:264 admin/views/editor-views.php:406
+msgid "Duplicate"
+msgstr "Duplizieren"
+
+#: admin/views/editor-views.php:8
+msgid "Target directory does not exist."
+msgstr "Zielverzeichnis existiert nicht."
+
+#: admin/views/editor-views.php:12
+msgid "You do not have sufficient permissions to edit templates for this site."
+msgstr "Sie sind nicht berechtigt, Vorlagen dieser Webseite zu bearbeiten."
+
+#: admin/views/editor-views.php:259
+msgid "File edited successfully."
+msgstr "Datei erfolgreich bearbeitet."
+
+#: admin/views/editor-views.php:263
+msgid "File added successfully."
+msgstr "Datei erfolgreich hinzugefügt."
+
+#: admin/views/editor-views.php:267
+msgid "File deleted successfully."
+msgstr "Datei erfolgreich gelöscht."
+
+#: admin/views/editor-views.php:271
+msgid "File renamed successfully."
+msgstr "Datei erfolgreich umbenannt."
+
+#: admin/views/editor-views.php:275
+msgid "File with the same name already exists."
+msgstr "Datei mit demselben Namen existiert bereits."
+
+#: admin/views/editor-views.php:309
+msgid "Add New"
+msgstr "Neu hinzufügen"
+
+#: admin/views/editor-views.php:342
+msgid "You have not created any template"
+msgstr "Sie haben keine Vorlage erstellt"
+
+#: admin/views/editor-views.php:349
+#, php-format
+msgid "Welcome to the <strong>%s</strong>!"
+msgstr "Willkommen zu <strong>%s</strong>!"
+
+#: admin/views/editor-views.php:360
+msgid ""
+"Oops, such file does not exist! Double check the name and try again, merci."
+msgstr ""
+"Oops, solche Datei existiert nicht! Überprüfen Sie den Namen und versuchen "
+"noch mal, merci."
+
+#: admin/views/editor-views.php:372
+msgid "Shortcode Templates"
+msgstr "Shortcode-Vorlagen"
+
+#: admin/views/editor-views.php:403
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: admin/views/editor-views.php:405
+msgid "Rename dialog"
+msgstr "Dialog umbennenen"
+
+#: admin/views/editor-views.php:405
+msgid "Rename"
+msgstr "Umbenennen"
+
+#: admin/views/editor-views.php:407
+msgid "Delete"
+msgstr "Löschen"
+
+#: admin/views/editor-views.php:424 admin/views/editor-views.php:425
+msgid "Enter a new file name"
+msgstr "Geben Sie einen neuen Dateinamen"
+
+#: admin/views/editor-views.php:426
+msgid "Please enter a valid filename."
+msgstr "Bitte geben Sie einen gültigen Dateinamen."
+
+#: admin/views/editor-views.php:429
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: includes/class-cherry-shortcode-templates.php:61
+msgid "Template"
+msgstr "Vorlage"
+
+#: includes/class-cherry-shortcode-templates.php:62
+msgid "Shortcode template"
+msgstr "Shortcode-Vorlage"

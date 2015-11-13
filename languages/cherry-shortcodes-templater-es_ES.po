@@ -1,0 +1,163 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cherry-shortcodes-templater\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-30 13:04+0200\n"
+"PO-Revision-Date: 2015-10-30 13:04+0200\n"
+"Last-Translator: J.L.Dokter <jldokter@gmail.com>\n"
+"Language-Team: Cherry Team <support@cherryframework.com>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2;_n_noop:1,2;_x:1,2c;_nx:1,2,4c;"
+"_nx_noop:1,2,3c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-cherry-shortcode-editor.php:92
+#, php-format
+msgid ""
+"Sorry, but target directory (<strong>%1$s</strong>) is not created. Maybe "
+"<strong>%2$s</strong> the directory is not writable."
+msgstr ""
+"Lo sentimos, pero no se crea directorio de destino (<strong>(%1$s). Quizás "
+"%2$s</strong> el directorio no se puede escribir."
+
+#: admin/class-cherry-shortcode-editor.php:159
+msgid "Title"
+msgstr "Título"
+
+#: admin/class-cherry-shortcode-editor.php:166
+msgid "Image"
+msgstr "Imagen"
+
+#: admin/class-cherry-shortcode-editor.php:173
+msgid "Content"
+msgstr "Contenido"
+
+#: admin/class-cherry-shortcode-editor.php:180
+msgid "Button"
+msgstr "Botón"
+
+#: admin/class-cherry-shortcode-editor.php:187
+msgid "Permalink"
+msgstr "Permalink"
+
+#: admin/class-cherry-shortcode-editor.php:216
+#: admin/class-cherry-shortcode-editor.php:217
+msgid "Shortcodes Templater"
+msgstr "Shortcodes Templater"
+
+#: admin/class-cherry-shortcode-editor.php:245
+msgid ""
+"You need to make this file writable to save your changes. See <a href="
+"\"http://codex.wordpress.org/Changing_File_Permissions\">the Codex</a> for "
+"more information."
+msgstr ""
+"Usted necesita hacer este archivo modificable antes de poder guardar los "
+"cambios. Ver <a href=\"http://codex.wordpress.org/Changing_File_Permissions"
+"\">Codex</a> para obtener más información."
+
+#: admin/class-cherry-shortcode-editor.php:262 admin/views/editor-views.php:428
+msgid "Save"
+msgstr "Guardar"
+
+#: admin/class-cherry-shortcode-editor.php:264 admin/views/editor-views.php:406
+msgid "Duplicate"
+msgstr "Duplicar"
+
+#: admin/views/editor-views.php:8
+msgid "Target directory does not exist."
+msgstr "Directorio de destino no existe."
+
+#: admin/views/editor-views.php:12
+msgid "You do not have sufficient permissions to edit templates for this site."
+msgstr ""
+"Usted no tiene suficientes permisos para editar las plantillas para este "
+"sitio web."
+
+#: admin/views/editor-views.php:259
+msgid "File edited successfully."
+msgstr "Archivo ha sido editado con éxito."
+
+#: admin/views/editor-views.php:263
+msgid "File added successfully."
+msgstr "Archivo ha sido añadido con éxito."
+
+#: admin/views/editor-views.php:267
+msgid "File deleted successfully."
+msgstr "Archivo ha sido eliminado con éxito."
+
+#: admin/views/editor-views.php:271
+msgid "File renamed successfully."
+msgstr "El cambio de nombre del archivo ha sido con éxito."
+
+#: admin/views/editor-views.php:275
+msgid "File with the same name already exists."
+msgstr "El archivo con el mismo nombre ya existe."
+
+#: admin/views/editor-views.php:309
+msgid "Add New"
+msgstr "Añadir nuevo"
+
+#: admin/views/editor-views.php:342
+msgid "You have not created any template"
+msgstr "No ha creado ningúna plantilla"
+
+#: admin/views/editor-views.php:349
+#, php-format
+msgid "Welcome to the <strong>%s</strong>!"
+msgstr "Bienvenidos a la <strong>%s</ strong>!"
+
+#: admin/views/editor-views.php:360
+msgid ""
+"Oops, such file does not exist! Double check the name and try again, merci."
+msgstr ""
+"Vaya, dicho archivo no existe! Vuelva a comprobar el nombre y vuelva a "
+"intentarlo, gracias."
+
+#: admin/views/editor-views.php:372
+msgid "Shortcode Templates"
+msgstr "Plantilla de Shortcode"
+
+#: admin/views/editor-views.php:403
+msgid "Edit"
+msgstr "Editar"
+
+#: admin/views/editor-views.php:405
+msgid "Rename dialog"
+msgstr "Cambiar el nombre al diálogo"
+
+#: admin/views/editor-views.php:405
+msgid "Rename"
+msgstr "Cambiar el nombre"
+
+#: admin/views/editor-views.php:407
+msgid "Delete"
+msgstr "Eliminar"
+
+#: admin/views/editor-views.php:424 admin/views/editor-views.php:425
+msgid "Enter a new file name"
+msgstr "Introduzca el nuevo nombre del archivo"
+
+#: admin/views/editor-views.php:426
+msgid "Please enter a valid filename."
+msgstr "Por favor, introduzca el nombre de archivo válido."
+
+#: admin/views/editor-views.php:429
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: includes/class-cherry-shortcode-templates.php:61
+msgid "Template"
+msgstr "Plantilla"
+
+#: includes/class-cherry-shortcode-templates.php:62
+msgid "Shortcode template"
+msgstr "Plantilla de Shortcode"
