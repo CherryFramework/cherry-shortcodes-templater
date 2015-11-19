@@ -164,7 +164,7 @@ if ( ! class_exists( 'Cherry_Shortcode_Editor' ) ) {
 			wp_dequeue_style( 'jquery-ui' );
 			wp_register_style( 'cherry-ui-elements', plugins_url( 'assets/css/cherry-ui-elements.css', __FILE__ ) );
 			wp_register_style( $this->plugin_slug . '-admin-style', plugins_url( 'assets/css/editor.css', __FILE__ ), array( 'cherry-ui-elements' ), CHERRY_TEMPLATER_VERSION );
-			wp_register_script( $this->plugin_slug . '-admin-script', plugins_url( 'assets/js/editor.min.js', __FILE__ ), array( 'jquery', 'jquery-ui-accordion', 'jquery-ui-tooltip', 'quicktags' ), CHERRY_TEMPLATER_VERSION, true );
+			wp_register_script( $this->plugin_slug . '-admin-script', plugins_url( 'assets/js/min/editor.min.js', __FILE__ ), array( 'jquery', 'jquery-ui-accordion', 'jquery-ui-tooltip', 'quicktags' ), CHERRY_TEMPLATER_VERSION, true );
 
 			wp_enqueue_style( $this->plugin_slug . '-admin-style' );
 			wp_enqueue_script( $this->plugin_slug . '-admin-script' );
