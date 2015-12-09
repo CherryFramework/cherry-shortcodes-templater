@@ -1,157 +1,164 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: cherry-shortcodes-templater\n"
+"Project-Id-Version: Cherry Shortcodes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-30 13:04+0200\n"
-"PO-Revision-Date: 2015-10-30 13:04+0200\n"
-"Last-Translator: J.L.Dokter <jldokter@gmail.com>\n"
-"Language-Team: Cherry Team <support@cherryframework.com>\n"
+"POT-Creation-Date: 2015-12-09 15:37+0200\n"
+"PO-Revision-Date: 2015-12-09 15:37+0200\n"
+"Last-Translator: Grzegorz Stalmierski <grzegorz.stalmierski@gmail.com>\n"
+"Language-Team: Grzegorz Stalmierski <grzegorz.stalmierski@gmail.com>\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.6\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: _e;__;_n:1,2;_n_noop:1,2;_x:1,2c;_nx:1,2,4c;"
-"_nx_noop:1,2,3c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
-"esc_html_x:1,2c\n"
-"X-Textdomain-Support: yes\n"
+"X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.8.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/class-cherry-shortcode-editor.php:92
+#: admin/class-cherry-shortcode-editor.php:105
 #, php-format
 msgid ""
 "Sorry, but target directory (<strong>%1$s</strong>) is not created. Maybe "
 "<strong>%2$s</strong> the directory is not writable."
 msgstr ""
+"Przepraszamy, ale nie został utworzony katalog docelowy (<strong>%1$s</"
+"strong>). Prawdopodobnie, <strong>%2$s</strong> katalogu nie jest "
+"zapisywalny."
 
-#: admin/class-cherry-shortcode-editor.php:159
+#: admin/class-cherry-shortcode-editor.php:182
 msgid "Title"
 msgstr "Tytuł"
 
-#: admin/class-cherry-shortcode-editor.php:166
+#: admin/class-cherry-shortcode-editor.php:188
 msgid "Image"
 msgstr "Obraz"
 
-#: admin/class-cherry-shortcode-editor.php:173
+#: admin/class-cherry-shortcode-editor.php:194
 msgid "Content"
 msgstr "Treść"
 
-#: admin/class-cherry-shortcode-editor.php:180
+#: admin/class-cherry-shortcode-editor.php:200
 msgid "Button"
 msgstr "Przycisk"
 
-#: admin/class-cherry-shortcode-editor.php:187
+#: admin/class-cherry-shortcode-editor.php:206
 msgid "Permalink"
 msgstr "Permalink"
 
-#: admin/class-cherry-shortcode-editor.php:216
-#: admin/class-cherry-shortcode-editor.php:217
+#: admin/class-cherry-shortcode-editor.php:233
+#: admin/class-cherry-shortcode-editor.php:234
 msgid "Shortcodes Templater"
-msgstr ""
+msgstr "Shortcodes Templater"
 
-#: admin/class-cherry-shortcode-editor.php:245
+#: admin/class-cherry-shortcode-editor.php:262
 msgid ""
 "You need to make this file writable to save your changes. See <a href="
 "\"http://codex.wordpress.org/Changing_File_Permissions\">the Codex</a> for "
 "more information."
 msgstr ""
+"Należy zrobić ten plik zapisywalny, zanim będzie można zapisać zmiany. "
+"Zobacz <a href=\"http://codex.wordpress.org/Changing_File_Permissions\">the "
+"Codex</a> dla uzyskania więcej informacji."
 
-#: admin/class-cherry-shortcode-editor.php:262 admin/views/editor-views.php:428
+#: admin/class-cherry-shortcode-editor.php:279 admin/views/editor-views.php:435
 msgid "Save"
-msgstr ""
+msgstr "Zapisz"
 
-#: admin/class-cherry-shortcode-editor.php:264 admin/views/editor-views.php:406
+#: admin/class-cherry-shortcode-editor.php:281 admin/views/editor-views.php:413
 msgid "Duplicate"
-msgstr ""
+msgstr "Duplikat"
 
-#: admin/views/editor-views.php:8
+#: admin/views/editor-views.php:17
 msgid "Target directory does not exist."
-msgstr ""
+msgstr "Katalog docelowy nie istnieje."
 
-#: admin/views/editor-views.php:12
+#: admin/views/editor-views.php:21
 msgid "You do not have sufficient permissions to edit templates for this site."
 msgstr ""
-
-#: admin/views/editor-views.php:259
-msgid "File edited successfully."
-msgstr ""
-
-#: admin/views/editor-views.php:263
-msgid "File added successfully."
-msgstr ""
+"Nie posiadasz odpowiednich uprawnień, żeby edytować szablony tej strony."
 
 #: admin/views/editor-views.php:267
-msgid "File deleted successfully."
-msgstr ""
+msgid "File edited successfully."
+msgstr "Plik został pomyślnie edytowany."
 
 #: admin/views/editor-views.php:271
-msgid "File renamed successfully."
-msgstr ""
+msgid "File added successfully."
+msgstr "Plik został pomyślnie dodany."
 
 #: admin/views/editor-views.php:275
+msgid "File deleted successfully."
+msgstr "Plik został pomyślnie usunięty."
+
+#: admin/views/editor-views.php:279
+msgid "File renamed successfully."
+msgstr "Nazwa pliku została pomyślnie zmieniona."
+
+#: admin/views/editor-views.php:283
 msgid "File with the same name already exists."
-msgstr ""
+msgstr "Plik o takiej nazwie już istnieje."
 
-#: admin/views/editor-views.php:309
+#: admin/views/editor-views.php:317
 msgid "Add New"
-msgstr ""
-
-#: admin/views/editor-views.php:342
-msgid "You have not created any template"
-msgstr ""
+msgstr "Dodaj nowy"
 
 #: admin/views/editor-views.php:349
+msgid "You have not created any template"
+msgstr "Żaden szablon nie został stworzony"
+
+#: admin/views/editor-views.php:356
 #, php-format
 msgid "Welcome to the <strong>%s</strong>!"
-msgstr ""
+msgstr "Zapraszamy do <strong>%s</strong>!"
 
-#: admin/views/editor-views.php:360
+#: admin/views/editor-views.php:367
 msgid ""
 "Oops, such file does not exist! Double check the name and try again, merci."
 msgstr ""
+"Oops, nie istniejący plik! Powtórnie sprawdź nazwę, a zatem spróbuj "
+"ponownie, dziękujemy."
 
-#: admin/views/editor-views.php:372
+#: admin/views/editor-views.php:379
 msgid "Shortcode Templates"
-msgstr ""
+msgstr "Szablony shortcode"
 
-#: admin/views/editor-views.php:403
+#: admin/views/editor-views.php:410
 msgid "Edit"
-msgstr ""
+msgstr "Edytuj"
 
-#: admin/views/editor-views.php:405
+#: admin/views/editor-views.php:412
 msgid "Rename dialog"
-msgstr ""
+msgstr "Zmień nazwę dialogu"
 
-#: admin/views/editor-views.php:405
+#: admin/views/editor-views.php:412
 msgid "Rename"
-msgstr ""
+msgstr "Zmień nazwę"
 
-#: admin/views/editor-views.php:407
+#: admin/views/editor-views.php:414
 msgid "Delete"
-msgstr ""
+msgstr "Usuń"
 
-#: admin/views/editor-views.php:424 admin/views/editor-views.php:425
+#: admin/views/editor-views.php:431 admin/views/editor-views.php:432
 msgid "Enter a new file name"
-msgstr ""
+msgstr "Wprowadź nazwę nowego pliku"
 
-#: admin/views/editor-views.php:426
+#: admin/views/editor-views.php:433
 msgid "Please enter a valid filename."
-msgstr ""
+msgstr "Należy wprowadzić poprawną nazwę pliku."
 
-#: admin/views/editor-views.php:429
+#: admin/views/editor-views.php:436
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
 
-#: includes/class-cherry-shortcode-templates.php:61
+#: includes/class-cherry-shortcode-templates.php:71
 msgid "Template"
 msgstr "Szablon"
 
-#: includes/class-cherry-shortcode-templates.php:62
+#: includes/class-cherry-shortcode-templates.php:72
 msgid "Shortcode template"
-msgstr ""
+msgstr "Szablon shortcode"
 
 #~ msgid "Date"
 #~ msgstr "Daty"
